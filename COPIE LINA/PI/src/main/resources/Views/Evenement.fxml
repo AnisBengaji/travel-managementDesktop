@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ScrollPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.projeti.controllers.EvenementController" stylesheets="@style.css">
+
+    <!-- En-tête -->
+    <Label text="Liste des Événements" layoutX="14" layoutY="14" styleClass="header-label"/>
+
+    <!-- Barre de recherche -->
+    <HBox spacing="10" styleClass="form-row" layoutX="14" layoutY="40">
+        <Label text="Rechercher" prefWidth="100" styleClass="form-label"/>
+        <TextField fx:id="searchField" promptText="Entrez un nom d'événement" prefWidth="200" styleClass="form-input" onKeyReleased="#handleSearch"/>
+    </HBox>
+
+    <!-- Filtre par prix -->
+    <HBox spacing="10" styleClass="form-row" layoutX="14" layoutY="90">
+        <Label text="Filtrer par prix" prefWidth="100" styleClass="form-label"/>
+        <ComboBox fx:id="priceFilterCombo" prefWidth="200" onAction="#handleFilter">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Tous"/>
+                    <String fx:value="Moins de 50€"/>
+                    <String fx:value="50€ - 100€"/>
+                    <String fx:value="Plus de 100€"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <!-- Scrollable zone -->
+    <ScrollPane layoutX="14" layoutY="150" prefWidth="630" prefHeight="500" fitToWidth="true">
+        <content>
+            <VBox spacing="10" prefWidth="600" styleClass="main-container">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <!-- Formulaire -->
+                <VBox spacing="10" styleClass="form-container">
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Nom" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="nomField" promptText="Entrez le nom de l'événement" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Date Départ" prefWidth="100" styleClass="form-label"/>
+                        <DatePicker fx:id="dateDepartField" promptText="Sélectionnez la date de départ" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Date Arrivée" prefWidth="100" styleClass="form-label"/>
+                        <DatePicker fx:id="dateArriverField" promptText="Sélectionnez la date d'arrivée" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Lieu" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="lieuField" promptText="Entrez le lieu" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Description" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="descriptionField" promptText="Entrez la description" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Prix" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="priceField" promptText="Entrez le prix" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Latitude" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="latitudeField" promptText="Entrez la latitude" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+
+                    <HBox spacing="10" styleClass="form-row">
+                        <Label text="Longitude" prefWidth="100" styleClass="form-label"/>
+                        <TextField fx:id="longitudeField" promptText="Entrez la longitude" prefWidth="200" styleClass="form-input"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Boutons -->
+                <HBox spacing="10" styleClass="button-container">
+                    <Button fx:id="addButton" text="Ajouter" onAction="#handleAddEvent" prefWidth="130" styleClass="action-button"/>
+                    <Button fx:id="updateButton" text="Update" onAction="#handleUpdateEvent" prefWidth="130" styleClass="action-button"/>
+                    <Button fx:id="deleteButton" text="Supprimer" onAction="#handleDeleteEvent" prefWidth="150" styleClass="delete-button"/>
+                    <Button fx:id="reservationButton" text="Réservation" onAction="#handleReservation" prefWidth="170" styleClass="action-button"/>
+                    <Button fx:id="pdfButton" text="PDF" onAction="#handlePdf" prefWidth="130" styleClass="action-button">
+                        <graphic>
+                            <ImageView fitWidth="20" fitHeight="20">
+                                <image>
+                                    <Image url="@icons/pdf.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <!-- Liste des événements -->
+                <ListView fx:id="evenementList" prefWidth="600" prefHeight="300" styleClass="event-list"/>
+            </VBox>
+        </content>
+    </ScrollPane>
+</AnchorPane>

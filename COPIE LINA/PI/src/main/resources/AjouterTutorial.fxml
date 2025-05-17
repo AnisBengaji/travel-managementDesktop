@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="org.projeti.controllers.AjouterTutorial"
+            prefHeight="600.0" 
+            prefWidth="800.0">
+    <VBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        
+        <Label styleClass="title" text="Ajouter un Tutoriel" />
+        
+        <TextField fx:id="nomField" promptText="Nom du tutoriel" />
+        <DatePicker fx:id="dateDebutField" promptText="Date de début" />
+        <DatePicker fx:id="dateFinField" promptText="Date de fin" />
+        <TextField fx:id="prixField" promptText="Prix" />
+        <TextField fx:id="url" promptText="URL du tutoriel" />
+        <TextField fx:id="offre_id" promptText="ID de l'offre" />
+        
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Sauvegarder" onAction="#sauvegarderTutorial" />
+            <Button text="Afficher les tutoriels" onAction="#afficherTutorials" />
+        </HBox>
+    </VBox>
+</AnchorPane>

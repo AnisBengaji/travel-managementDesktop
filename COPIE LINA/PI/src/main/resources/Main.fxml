@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1300.0" stylesheets="@admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.projeti.controllers.MainController">
+
+    <!-- Sidebar (Left) -->
+    <VBox fx:id="sidebar" layoutX="14.0" layoutY="21.0" prefHeight="778.0" prefWidth="250.0" styleClass="sidebar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0">
+        <children>
+            <!-- Logo -->
+            <ImageView fitHeight="60.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@images/logo.png" />
+                </image>
+            </ImageView>
+
+            <!-- Espacement -->
+            <VBox spacing="30" />
+
+            <!-- Menu Items -->
+            <VBox spacing="15" styleClass="menu-container">
+                <children>
+                    <HBox spacing="15" styleClass="menu-item">
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@images/Home_Icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="homelabel" styleClass="menu-label" text="Home" />
+                    </HBox>
+
+                    <HBox spacing="15" styleClass="menu-item">
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@images/All_trips_Icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="Offrelabel" styleClass="menu-label" text="Offre" />
+                    </HBox>
+
+                    <HBox spacing="15" styleClass="menu-item">
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@images/Transport_Icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="distinationlabel" styleClass="menu-label" text="distination" />
+                    </HBox>
+
+                    <HBox spacing="15" styleClass="menu-item">
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@images/Rooms_Icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="tuto" styleClass="menu-label" text="Tutorial" />
+                    </HBox>
+
+                    <HBox spacing="15" styleClass="menu-item">
+                        <!-- Icon -->
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@icons/post1.png" />
+                            </image>
+                        </ImageView>
+                        <!-- Label -->
+                        <Label fx:id="publicationlabel" styleClass="menu-label" text="Publications" />
+
+                        <!-- Button with proper size and visibility -->
+                    </HBox>
+                    <HBox spacing="15" styleClass="menu-item">
+                        <!-- Icon -->
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                            <image>
+                                <Image url="@icons/event.png" />
+                            </image>
+                        </ImageView>
+                        <!-- Label -->
+                        <Label fx:id="eventlabel" styleClass="icon-label" text="Evénements" />
+
+                        <!-- Button with proper size and visibility -->
+                    </HBox>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <HBox layoutX="10.0" layoutY="512.0" spacing="15" styleClass="menu-item" />
+               <HBox layoutX="10.0" layoutY="365.0" spacing="15" styleClass="menu-item" />
+                    <HBox onMouseClicked="#handleSignOut" spacing="15" styleClass="menu-item">
+                        <ImageView fitHeight="30.0" fitWidth="35.0">
+                            <image>
+                                <Image url="@images/logout_icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label styleClass="menu-label" text="Sign Out" />
+                    </HBox>
+
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+
+    <!-- Navbar (Top) -->
+    <HBox fx:id="navbar" alignment="CENTER_RIGHT" layoutX="276.0" layoutY="14.0" maxWidth="1050.0" prefHeight="66.0" prefWidth="990.0" spacing="15" styleClass="navbar" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="14.0">
+        <children>
+            <TextField prefHeight="42.0" prefWidth="433.0" promptText="Search" styleClass="search-bar">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </TextField>
+            <Label fx:id="userNameLabel" prefHeight="17.0" prefWidth="95.0" text="Hi there">
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin></Label>
+            <ImageView fitHeight="40.0" fitWidth="71.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" styleClass="user-icon">
+                <image>
+                    <Image url="@images/user_icon.png" />
+                </image>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+            </ImageView>
+
+        </children>
+    </HBox>
+
+    <!-- Main Content -->
+    <VBox fx:id="content" layoutX="282.0" layoutY="110.0" prefHeight="682.0" prefWidth="999.0" spacing="20" styleClass="content-container" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="110.0">
+        <children>
+            <!-- Trip Section -->
+            <HBox prefHeight="267.0" prefWidth="915.0" spacing="20">
+                <VBox prefHeight="267.0" prefWidth="870.0" styleClass="trip-card">
+                    <Label styleClass="trip-title" text="Santorini" />
+                    <ImageView fitHeight="154.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@images/santorini_banner.png" />
+                        </image>
+                    </ImageView>
+                </VBox>
+            </HBox>
+
+            <HBox layoutX="10.0" layoutY="10.0" spacing="20" />
+         <HBox layoutX="34.0" layoutY="34.0" prefHeight="267.0" prefWidth="915.0" spacing="20">
+            <children>
+               <VBox prefHeight="267.0" prefWidth="870.0" styleClass="trip-card">
+                  <children>
+                     <Label styleClass="trip-title" text="Santorini" />
+                     <ImageView fitHeight="154.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@images/santorini_banner.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+        </children>
+    </VBox>
+
+</AnchorPane>

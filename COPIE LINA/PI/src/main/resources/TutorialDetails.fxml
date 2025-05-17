@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="org.projeti.controllers.AfficherTutorial"
+            prefHeight="600.0" 
+            prefWidth="800.0">
+    <VBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Ajouter un tutoriel" onAction="#afficherAjouterTutorial"/>
+        </HBox>
+
+        <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="nom" text="Nom" prefWidth="150"/>
+                <TableColumn fx:id="dateDebut" text="Date de début" prefWidth="120"/>
+                <TableColumn fx:id="dateFin" text="Date de fin" prefWidth="120"/>
+                <TableColumn fx:id="prix" text="Prix" prefWidth="100"/>
+                <TableColumn fx:id="url" text="URL" prefWidth="150"/>
+                <TableColumn fx:id="offreId" text="ID Offre" prefWidth="100"/>
+                <TableColumn fx:id="modifier" text="Modifier" prefWidth="100"/>
+                <TableColumn fx:id="supprimer" text="Supprimer" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

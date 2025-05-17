@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="538.0" prefWidth="740.0" styleClass="auchor_container" stylesheets="@styleSignin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.projeti.controllers.DetailControllerUser">
+
+    <children>
+
+        <!-- Left Side (User Table) -->
+        <VBox alignment="CENTER" prefHeight="550.0" prefWidth="740.0" spacing="15" styleClass="signin-container">
+            <children>
+                <!-- Title -->
+                <Label styleClass="title" text="User Management" />
+                <HBox alignment="CENTER" spacing="10">
+                    <TextField fx:id="searchField" promptText="Search user..." styleClass="search-field" />
+                    <Button fx:id="searchButton" onAction="#handleSearch" styleClass="search-button" text="Search">
+                  <HBox.margin>
+                     <Insets left="60.0" />
+                  </HBox.margin></Button>
+                </HBox>
+
+                <!-- TableView -->
+                <TableView fx:id="tableView" prefHeight="400.0" prefWidth="757.0">
+                    <columns>
+                        <TableColumn fx:id="colNom" prefWidth="87.0" text="Name" />
+                        <TableColumn fx:id="colPrenom" prefWidth="97.0" text="Last Name" />
+                        <TableColumn fx:id="colTel" prefWidth="75.0" text="Phone" />
+                        <TableColumn fx:id="colEmail" prefWidth="138.0" text="Email" />
+                        <TableColumn fx:id="colRole" prefWidth="82.0" text="Role" />
+                        <TableColumn fx:id="colActions" prefWidth="97.0" text="Actions" />
+                        <TableColumn fx:id="colUpdate" prefWidth="91.0" text="Modify" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

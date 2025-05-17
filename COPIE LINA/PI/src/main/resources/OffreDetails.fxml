@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="org.projeti.controllers.afficherOffre"
+            prefHeight="600.0" 
+            prefWidth="800.0">
+    <VBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Ajouter une offre" onAction="#afficherAjouterOffre"/>
+        </HBox>
+
+        <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="titre" text="Titre" prefWidth="150"/>
+                <TableColumn fx:id="description" text="Description" prefWidth="200"/>
+                <TableColumn fx:id="prix" text="Prix" prefWidth="100"/>
+                <TableColumn fx:id="destination" text="Destination" prefWidth="150"/>
+                <TableColumn fx:id="rating" text="Rating" prefWidth="100"/>
+                <TableColumn fx:id="ratingCount" text="Nombre d'avis" prefWidth="100"/>
+                <TableColumn fx:id="modifier" text="Modifier" prefWidth="100"/>
+                <TableColumn fx:id="supprimer" text="Supprimer" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

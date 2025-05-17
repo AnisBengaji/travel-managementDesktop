@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1200.0" styleClass="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.projeti.controllers.publication.HomePublicationController">
+   <!-- Apply CSS stylesheet -->
+   <stylesheets>
+      <URL value="@advStyle.css" />
+   </stylesheets>
+
+   <!-- Main Content Area -->
+   <ScrollPane fx:id="contentArea" fitToWidth="true" prefHeight="800.0" styleClass="scroll-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <content>
+         <VBox fx:id="mainContent" alignment="TOP_CENTER" spacing="25" styleClass="main-content" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+
+            <!-- Header Section -->
+            <HBox alignment="CENTER" spacing="20">
+               <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                  <Image url="@icons/post1.png" />
+               </ImageView>
+               <Label text="Publication Management" styleClass="section-label">
+                  <font>
+                     <Font name="System Bold" size="24" />
+                  </font>
+               </Label>
+            </HBox>
+
+            <!-- Filter Panel -->
+            <VBox styleClass="filter-section" spacing="12">
+               <Label text="Filter Publications" styleClass="section-label">
+                  <font>
+                     <Font name="System Bold" size="18" />
+                  </font>
+               </Label>
+
+               <HBox alignment="CENTER_LEFT" spacing="12">
+                  <VBox spacing="5" HBox.hgrow="ALWAYS">
+                     <Label text="Search" styleClass="filter-label">
+                        <font>
+                           <Font size="12" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="searchTextField" prefHeight="40.0" promptText="Search titles, descriptions..." styleClass="form-textfield" maxWidth="Infinity">
+                        <font>
+                           <Font size="13" />
+                        </font>
+                     </TextField>
+                  </VBox>
+
+                  <VBox spacing="5">
+                     <Label text="Category" styleClass="filter-label">
+                        <font>
+                           <Font size="12" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="categoryComboBox" prefHeight="40.0" prefWidth="180.0" promptText="All Categories" styleClass="form-combobox">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="All Categories" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+                  </VBox>
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT" spacing="12">
+                  <VBox spacing="5">
+                     <Label text="Visibility" styleClass="filter-label">
+                        <font>
+                           <Font size="12" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="visibilityComboBox" prefHeight="40.0" prefWidth="180.0" promptText="All" styleClass="form-combobox">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="All" />
+                              <String fx:value="Public" />
+                              <String fx:value="Private" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+                  </VBox>
+
+                  <VBox spacing="5">
+                     <Label text="Sort Order" styleClass="filter-label">
+                        <font>
+                           <Font size="12" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="sortComboBox" prefHeight="40.0" prefWidth="180.0" promptText="Newest First" styleClass="form-combobox">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Newest to Oldest" />
+                              <String fx:value="Oldest to Newest" />
+                              <String fx:value="Title A-Z" />
+                              <String fx:value="Title Z-A" />
+                              <String fx:value="Category" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+                  </VBox>
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Button fx:id="btnClearFilters" mnemonicParsing="false" prefHeight="40.0" styleClass="button-main" text="Clear Filters">
+                     <font>
+                        <Font size="13" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Reset all filters" />
+                     </tooltip>
+                     <VBox.margin>
+                        <Insets top="17" />
+                     </VBox.margin>
+                  </Button>
+               </HBox>
+            </VBox>
+
+            <!-- Results Summary -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+               <Label fx:id="resultsLabel" text="Showing 0 publications" styleClass="results-label">
+                  <font>
+                     <Font size="14" />
+                  </font>
+               </Label>
+            </HBox>
+
+            <!-- Action Panel (Moved here, just before publications) -->
+            <HBox styleClass="action-panel" spacing="15">
+               <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#goToAjouterPub" prefHeight="45.0" styleClass="button-main" text="+ Add Publication">
+                  <font>
+                     <Font name="System Bold" size="14" />
+                  </font>
+                  <tooltip>
+                     <Tooltip text="Create a new publication" />
+                  </tooltip>
+               </Button>
+
+               <Region HBox.hgrow="ALWAYS" />
+
+               <Button fx:id="btnTranslate" mnemonicParsing="false" onAction="#translatePublication" prefHeight="40.0" styleClass="button-main" text="Translate">
+                  <font>
+                     <Font name="System Bold" size="14" />
+                  </font>
+                  <tooltip>
+                     <Tooltip text="Translate selected publication" />
+                  </tooltip>
+               </Button>
+
+               <ComboBox fx:id="languageComboBox" prefHeight="40.0" prefWidth="150.0" promptText="Select Language" styleClass="form-combobox">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="English" />
+                        <String fx:value="French" />
+                        <String fx:value="Spanish" />
+                        <String fx:value="German" />
+                        <String fx:value="Arabic" />
+                     </FXCollections>
+                  </items>
+               </ComboBox>
+            </HBox>
+
+            <!-- Publications Container -->
+            <VBox fx:id="publicationsContainer" styleClass="publications-container" spacing="15">
+               <!-- Publication list will be added programmatically -->
+
+               <!-- Placeholder for empty state -->
+               <VBox fx:id="emptyStateContainer" styleClass="no-results" visible="false">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+                     <!-- Empty image placeholder -->
+                  </ImageView>
+                  <Label text="No publications found" styleClass="placeholder-label">
+                     <font>
+                        <Font size="16" />
+                     </font>
+                  </Label>
+                  <Label text="Try adjusting your filters or create a new publication" styleClass="placeholder-label">
+                     <font>
+                        <Font size="14" />
+                     </font>
+                  </Label>
+               </VBox>
+            </VBox>
+         </VBox>
+      </content>
+   </ScrollPane>
+</AnchorPane>
